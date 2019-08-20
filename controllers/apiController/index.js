@@ -7,7 +7,7 @@ const Moment = require("moment");
 const axios = require("axios");
 const imageRoot = "https://image.tmdb.org/t/p/w500";
 
-mongoose.connect("mongodb://localhost/chatdb", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/chatdb", { useNewUrlParser: true });   // may not have to use this here, or add the process.env stuff (see root index.js)
 
 //DO not call unless you are prepared
 const movieCompiler = async () => {

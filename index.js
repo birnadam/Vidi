@@ -11,7 +11,9 @@ const dbController = require("./controllers/dbController")
 // const socketFunctions = require("./socket.io/socket.io")
 
 // Database setup
-mongoose.connect("mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true})
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true}, (err, db) => {
+  if (err) console.log(err);
+});
 
 // Middlewares setup
 app.use(morgan("combined"));
@@ -22,12 +24,8 @@ app.use(cors());
 // If we are in production, serve our clients build folder
 // This folder is created during production only
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client-build"));
+    app.use(express.static("client/build"));
 }
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
 
 app.use(routes, (req, res) => {
     // No matching route for URL Found

@@ -9,6 +9,7 @@ const validateEmail = email => {
 }
 
 const UserSchema = new Schema({
+    date: { type: Date, default: new Date(Date.now()) },
     email: {
         type: String,
         unique: true,
