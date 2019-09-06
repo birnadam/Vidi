@@ -82,18 +82,18 @@ const loadDashboard = async (data, callback) => {
       console.log("Oooops", e)
     }
 
-    try {
-      if (userData.channels) {
-        userData.channels.map(channel => { channelIds.push(channel.id) })
-        console.log("channelIds")
-        console.log(channelIds)
-      }
-    } catch (e) {
-      console.log("Oooops", e)
-    }
+    // try {
+    //   if (userData.channels) {
+    //     userData.channels.map(channel => { channelIds.push(channel.id) })
+    //     console.log("channelIds")
+    //     console.log(channelIds)
+    //   }
+    // } catch (e) {
+    //   console.log("Oooops", e)
+    // }
 
     try {
-      channelData = await db.Channel.find({_id: channelIds}).populate("Message")
+      channelData = await db.Channel.find({_id: userData.channels}).populate("Message")
       console.log("channelData")
       console.log(channelData)
     } catch (e) {

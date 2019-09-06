@@ -19,12 +19,14 @@ class DashboardPg extends Component {
         // console.log(this.props.store)
         let userId = localStorage.getItem("userId");
         console.log(userId)
-        this.props.socket.emit("loadDashboard", userId, (data) => {
+        this.props.socket.emit("loadDashboard", userId, (userData) => {
             console.log("Dashboard is fetching userData")
-            this.props.socket.on("dashboardLoaded", function(userData) {
-                console.log(userData)
-                this.props.loadDashboard(userData)
-            })
+            console.log(userData)
+            this.props.loadDashboard(userData)
+            // this.props.socket.on("dashboardLoaded", function(userData) {
+            //     console.log(userData)
+            //     this.props.loadDashboard(userData)
+            // })
         })
     }
 

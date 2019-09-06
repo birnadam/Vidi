@@ -14,8 +14,10 @@ class CreateChat extends Component {
   }
 
   onSubmit = formProps => {
-    let userId = this.props.state.db.Users.id
+    let userId = this.props.state.db.Users._id
+    console.log(userId)
     let formData = {...formProps, userId}
+    console.log(formData)
     this.props.socket.emit("createChannel", formData, function(channelData) {
       console.log(channelData)
     })
@@ -36,7 +38,6 @@ class CreateChat extends Component {
   // https://redux-form.com/7.4.0/docs/api/field.md/
 
   render() {
-    console.log(this.props.modal)
     const { handleSubmit } = this.props
     return (
       <div> 
