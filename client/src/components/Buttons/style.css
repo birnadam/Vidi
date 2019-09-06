@@ -1,0 +1,101 @@
+#sidebar {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  height: calc(100% - 60px);
+  z-index: 2;
+  overflow-y: auto; 
+  overflow-x: hidden;
+  max-width: 100%;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+
+#sidebar::-webkit-scrollbar { 
+  display: none;  
+}
+
+.dragscroll{
+  width: 85px; 
+  height: 160px; 
+  overflow-y: scroll; 
+  max-width: 100%;
+  overflow-x: hidden;
+  cursor: grab; 
+  cursor : -o-grab; 
+  cursor : -moz-grab; 
+  cursor : -webkit-grab;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+    
+.sidebar-menu li + li {
+  margin-top: 15px; 
+}
+    
+.sidebar-menu li a, .sidebar-menu li span  {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  display: block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 6px 0;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 60%;
+  font-size: 18px;
+  -webkit-transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+.sidebar-menu li a:hover, .sidebar-menu li span:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 10px; 
+}
+    
+.sidebar-menu li a:active .sidebar-menu li span:active{
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.6); 
+}
+    
+.sidebar-menu .sidebar-toggle, .sidebar-menu .current-server {
+  background-color: #6caaa2;
+  font-family: "uni_sansheavy_caps", sans-serif;
+  font-size: 24px; 
+}
+
+.sidebar-menu .sidebar-toggle:hover, .sidebar-menu .current-server:hover {
+  background-color: #6caaa2;
+  border: none;
+}
+
+.join-server {
+  background: transparent;
+  /* border: 1px dashed rgba(255, 255, 255, 0.4); */
+  color: rgba(255, 255, 255, 0.4); 
+}
+
+.sidebar-menu .join-server:hover {
+  border-color: #fff;
+  color: #fff;
+  background: transparent; 
+}
+  
+/* .sidebar-menu [data-toggle="sidebar"]:hover {
+  border-radius: 60%; 
+} */
+
+.sidebar-toggle img, .current-server img, .join-server img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position:relative;
+}
+      
+.sidebar-toggle img, .current-server img, .join-server img{
+  top:-2px;
+}

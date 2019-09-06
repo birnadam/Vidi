@@ -7,6 +7,7 @@ import reduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import './style.css';
 import history from './history';
+import io from "socket.io-client"
 
 // import components
 import App from './App';
@@ -15,8 +16,8 @@ import DashboardPg from "./pages/DashboardPg";
 import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
 import Explorer from './pages/ExplorerPg';
-import CreateChat from './containers/CreateChat';
-// import Channels from './containers/Channels';
+import './style.css';
+import SignOut from './containers/SignOut';
 
 // configure redux devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -29,25 +30,29 @@ const store = createStore(
     composeEnhancers(applyMiddleware(reduxThunk))
 )
 
+const socket = io();
+
+socket.emit("connection", { socket: "connected" }, function (data) {
+    console.log(data)
+})
+
+socket.on("connected", function (data, cb) {
+    console.log("Client Socket is connected")
+    cb(data)
+    socket.on("disconnect", () => console.log("Server disconnected"))
+})
+
 //#region
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Wrapper>
                 <App>
-                    <Route exact path="/" component={HomePg} />
-                    <Route exact path="/dashboard" component={DashboardPg} />
-                    <Route exact path="/profile" component={ProfilePg} />
-                    <Route exact path="/explorer" component={Explorer} />
-                    <Route exact path="/" component={HomePg}/>
-                    <Route exact path="/dashboard" component={DashboardPg}/>
-                    <Route exact path="/profile" component={ProfilePg}/>
-                    <Route exact path="/explorer" component={Explorer}/>
-                    <Route exact path="/createchat" component={CreateChat}/>
-                    {/* <Route exact path="/signup" component={SignUpPg} />
-                    <Route exact path="/signin" component={SignInPg} />
-                    <Route exact path="/signout" component={SignOut}/>
-                    <Route exact path="Channels" component={Channels}/> */}
+                    <Route exact path="/" render={() => <HomePg socket={socket} />} />
+                    <Route exact path="/dashboard" render={() => <DashboardPg socket={socket} />} />
+                    <Route exact path="/profile" render={() => <ProfilePg socket={socket} />} />
+                    <Route exact path="/explorer" render={() => <Explorer socket={socket} />} />
+                    <Route exact path="/logout" render={() => <SignOut />} />
                 </App>
             </Wrapper>
         </Router>

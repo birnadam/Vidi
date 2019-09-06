@@ -47,9 +47,9 @@ class SignUp extends Component {
   }
 
   componentDidMount() {
-      this.props.socket.on("UserLoaded", data => {
-        console.log(data)
-      });
+      // this.props.socket.on("UserLoaded", data => {
+      //   console.log(data)
+      // });
   }
 
   render() {

@@ -380,4 +380,17 @@ h6 {
 .positionStyles {
   position: relative;
 }
-/*=============== END Page Styles ===============*/         
+/*=============== END Page Styles ===============*/  
+
+/*=============== START Logo Styles ===============*/       
+#logo-image img {
+  width: 80px;
+  color-adjust: aquamarine;
+}
+
+#logo-image {
+  z-index: 2;
+  position: fixed;
+  margin: 8px 100px 20px -80px;
+}
+/*=============== END Logo Styles ===============*/    

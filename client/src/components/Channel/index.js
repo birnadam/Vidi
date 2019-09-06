@@ -1,27 +1,27 @@
 import React from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
 import "./style.css";
 
+class Channel extends Component {
 
-export function AddButton (props) {
-  return (
-    <li><span onClick={props.show}
-            className="join-server createChannel" 
-            data-start="modal-custom" 
-            data-target="#create-group" 
-            data-toggle="tooltip" 
-            data-placement="right" 
-            data-title="Join a Group">
-          <img src="http://icons.iconarchive.com/icons/gakuseisean/ivista-2/128/Alarm-Plus-icon.png" alt=""></img>
-    </span></li>
-  )
+  render() {
+    return (
+      <li>
+        <div onClick={() => this.props.selectchat(this.props.id)}>
+          <span className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name" >
+            <img src={this.props.media} alt=""></img>
+          </span>
+        </div>
+      </li>
+    )
+  }
 }
 
-export const ProfileButton = props => (
-  <li className="toggle-sidebar"><a href="/profile" className="sidebar-toggle" data-toggle="sidebar"><img src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt=""></img></a></li>
-)
+function mapStateToProps(state) {
+  return { state }
+}
 
-export const Channel = props => {
-  return (
-      <li><a href="/" className="current-server" data-toggle="tooltip" data-placement="right" data-title="channel name"><img src={props.poster_path} alt=""></img></a></li>
-  )
-};
+export default compose(
+  connect(mapStateToProps, {}),
+)(Channel);

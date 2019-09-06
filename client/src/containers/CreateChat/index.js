@@ -16,20 +16,23 @@ class CreateChat extends Component {
   onSubmit = formProps => {
     let userId = this.props.state.db.Users._id
     console.log(userId)
-    let formData = {...formProps, userId}
+    let formData = { ...formProps, userId }
     console.log(formData)
-    this.props.socket.emit("createChannel", formData, function(channelData) {
+    this.props.socket.emit("createChannel", formData, function (channelData) {
       console.log(channelData)
     })
-    this.setState({modal: false})
+    this.setState({ modal: false })
   }
-  
+
   componentDidMount = () => {
     this.props.socket.on("channelResponse", (data) => {
       console.log("channelresponse frontend hit")
       console.log(data)
-      this.props.createChannel(data)
-      
+      this.props.createChannel(data, () => {
+        console.log("back to create channel")
+        console.log(data.Channels._id)
+        this.props.selectchat(data.Channels._id)
+      })
     })
   }
 
@@ -40,7 +43,7 @@ class CreateChat extends Component {
   render() {
     const { handleSubmit } = this.props
     return (
-      <div> 
+      <div>
         <Modal isOpen={this.props.modal} onClick={this.toggle} className="modal-block2">
           <ModalHeader>Create New Channel</ModalHeader>
           <ModalBody>
@@ -50,7 +53,6 @@ class CreateChat extends Component {
                   <label>Topic</label>
                   <Field
                     name="topic"
-                    label="topic"
                     component={InputField}
                     className="form-control"
                   />
@@ -61,7 +63,6 @@ class CreateChat extends Component {
                   <label>Description</label>
                   <Field
                     name="description"
-                    label="description"
                     component={InputField}
                     className="form-control"
                   />
@@ -69,16 +70,15 @@ class CreateChat extends Component {
               </div>
               <div>
                 <fieldset>
-                  <label>Friends</label>
+                  <label>Add Friends</label>
                   <Field
                     name="friends"
-                    label="friends"
                     component={InputField}
                     className="form-control"
                   />
                 </fieldset>
               </div>
-              <div>
+              {/* <div>
                 <fieldset>
                   <label>Media</label>
                   <Field
@@ -99,7 +99,7 @@ class CreateChat extends Component {
                     className="form-control"
                   />
                 </fieldset>
-              </div>
+              </div> */}
               <div>
                 <br></br>
                 <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.toggle}>Create</Button>

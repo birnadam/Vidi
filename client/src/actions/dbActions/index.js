@@ -37,8 +37,7 @@ export const receivedMessage = (data) => async dispatch => {
 export const createChannel = (data) => async dispatch => {
   console.log("We're inside createChannel")
   console.log(data)
-  let Users = {...data.Users}
-  let Channels = {...data.Channels}
+  let { Users, Channels } = data
   try {
       dispatch({ type: CREATE_CHANNEL, payload: Channels });
       dispatch({ type: LOAD_USER, payload: Users });
