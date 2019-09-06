@@ -6,7 +6,7 @@ const MessagesSchema = new Schema({
   date: { type: Date, default: new Date(Date.now()) },
   content: {
     type: String,
-    required: true,
+    required: false,
   },
   starred: {
     type: Number,
@@ -30,7 +30,7 @@ const MessagesSchema = new Schema({
       default: false
     }
   }],
-  channel: [{
+  channel: {
     admin: {
         type: Boolean,
         default: false
@@ -47,7 +47,7 @@ const MessagesSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Channel"
     }
-  }],
+  },
   media: [{
     current: {
       type: Boolean,

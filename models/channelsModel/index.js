@@ -31,6 +31,10 @@ const ChannelsSchema = new Schema({
     type: Number,
     default: 0
   },
+  admin: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   deleted: [{
     date: { type: Date, default: new Date(Date.now()) },
     status: {
@@ -43,7 +47,11 @@ const ChannelsSchema = new Schema({
     starred: {
         type: Boolean,
         default: false
-    },        
+    },  
+    sender: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
     ref_channel: {
         type: Schema.Types.ObjectId,
         ref: "Channel"

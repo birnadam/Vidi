@@ -1,5 +1,5 @@
 {
-  "name": "Oauth-React-Boilerplate",
+  "name": "Vidi",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "heroku-postbuild": "yarn run build"
   },
   "keywords": [],
-  "author": "toomusa <3895499+toomusa@users.noreply.github.com>",
+  "author": "Birna",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
@@ -39,11 +39,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/toomusa/Oauth-React-Boilerplate.git"
+    "url": "git+ssh://git@github.com/birnapwnsu/vidi.git"
   },
   "bugs": {
-    "url": "https://github.com/toomusa/Oauth-React-Boilerplate/issues"
+    "url": "https://github.com/birnapwnsu/vidi/issues"
   },
-  "homepage": "https://github.com/toomusa/Oauth-React-Boilerplate#readme",
+  "homepage": "https://github.com/birnapwnsu/vidi/#readme",
   "description": ""
 }
