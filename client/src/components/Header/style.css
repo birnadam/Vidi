@@ -1,54 +1,24 @@
+#headerTitle {
+  margin-top: 10px;
+}
 
+h2 a {
+  color: aquamarine;
+  font-size: 32px;
+  letter-spacing: 5px;
+}
 
-  .bgImageHeader {
-    top: 0px;
-    left: 0px;
-    height: 150px;
-    width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    color: white;
-    /* z-index: 0; */
-    margin: 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
+h2 a:hover {
+  text-decoration: none;
+  color: rgb(3, 155, 84);
+}
 
-  .headerTitle {
-    position: absolute;
-    left: 0%;
-    width: 100%;
-  }
-  
-  .headerTitleOthers {
-    position: absolute;
-    left: 0%;
-    width: 100%;
-    top: 10%;
-  }
+#headerTag {
+  color: aquamarine;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
 
-  .headerTitleHome {
-    top: 35%;
-  }
-  
-  .headerTitle h1 {
-    margin-top: 0px;
-    margin-right: 70px;
-    text-align: right;
-  }
-
-  .headerTitle h5 {
-    margin-top: 0px;
-    margin-right: 70px;
-    /* margin-right: 100px; */
-    text-align: right;
-  }
-
-  .headerTitleOthers h5 {
-    margin-top: 25px;
-    margin-right: 70px;
-    /* margin-right: 100px; */
-    text-align: right;
-  }
+.header-area {
+  margin-top: 30px;
+}

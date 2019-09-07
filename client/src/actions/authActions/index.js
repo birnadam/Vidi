@@ -36,7 +36,9 @@ export const signin = (formProps, callback) => async dispatch => {
 }
 
 export const signout = () => async dispatch => {
-    localStorage.removeItem("token");
+    console.log("User logged out")
+    localStorage.removeItem("token")
+    localStorage.removeItem("userId")
     dispatch({
         type: AUTH_USER,
         payload: ""

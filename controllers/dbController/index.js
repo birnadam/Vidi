@@ -2,116 +2,144 @@
 const mongoose = require("mongoose");
 const db = require("../../models");
 
-const sendMessage = async data => {
-  console.log("I'm inside the controller sendMessage", data)
+function isEmpty(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key))
+      return false;
+  }
+  return true;
+}
 
-  let res = await db.Channel.findById(chatId).populate("Message")
-  console.log("Channel data from db")
-  console.log(res)
-  
-  let chatData = {...res.messages}
-  console.log("Chat data from res messages")
-  console.log(chatData)
-  // res.json({chatData})
-  return chatData
+const sendMessage = async (data, callback) => {
+  console.log("Inside the controller sendMessage")
+  console.log(data)
+
+  let { content, chatId, userId, adminId } = data
+
+  let newMessage = await db.Message.create({
+    sender: userId,
+    content: content,
+    channel: {
+      ref_channel: chatId,
+      admin: (adminId === userId) ? true : false
+    }
+  }
+  )
+
+  let chatData = await db.Channel.findOneAndUpdate({ _id: chatId },
+    {
+      $push: {
+        messages: {
+          sent_messages: newMessage._id,
+          ref_channel: chatId,
+          sender: userId
+        }
+      }
+    }, { new: true })
+    .populate("messages.sender", "username")
+    .populate("messages.sent_messages")
+
+  let updatedUser = await db.User.findByIdAndUpdate(userId,
+    {
+      $push: {
+        messages: {
+          sent_messages: newMessage.id,
+          ref_channel: chatId
+        }
+      }
+    }, { new: true })
+
+  console.log("updatedUser")
+  console.log(updatedUser)
+
+  if (!isEmpty(chatData)) {
+    let lastMessage = { chatId: chatData._id, messages: chatData.messages.pop() }
+    console.log("lastMessage")
+    console.log(lastMessage)
+    callback(lastMessage)
+  }
 }
 
 const createChannel = async (data, callback) => {
   console.log("I'm inside the controller createChannel")
   console.log(data)
-  let userId = data.userId
-  console.log(userId)
+  let { userId } = data
 
-    return new Promise( async (resolve, reject) => {
-
+  return new Promise(async (resolve, reject) => {
     let newChannel;
     let updatedUser;
     let channelResponse;
 
     try {
-      newChannel = await new db.Channel(data)
-      await newChannel.save()
-      console.log("newChannel data from Channel db")
-      console.log(newChannel)
+      let createChannel = await new db.Channel(data)
+      await createChannel.save()
+      newChannel = await db.Channel.findOneAndUpdate({ _id: createChannel._id },
+        { $push: { admin: userId } }, { new: true })
     } catch (e) {
       console.log("Oooops", e)
     }
 
     try {
-      updatedUser = await db.User.findByIdAndUpdate(userId, {$push: {channels: newChannel.id }}, {new: true}).populate("Channel")
-      console.log("Channel data from User db")
-      console.log(updatedUser)
-      console.log(newChannel.id)
+      updatedUser = await db.User.findByIdAndUpdate(userId,
+        { $push: { channels: newChannel.id } }, { new: true }).populate("Channel")
     } catch (e) {
       console.log("Oooops", e)
     }
-    
+
     try {
       channelResponse = await db.Channel.findById(newChannel.id)
-      console.log("Chat data from res messages")
-      console.log(channelResponse)
     } catch (e) {
       console.log("Oooops", e)
     }
 
     if (channelResponse && updatedUser) {
-      let channelData = {Channels: channelResponse, Users: updatedUser};
+      let channelData = { Channels: channelResponse, Users: updatedUser };
+      console.log("channelData")
+      console.log(channelData)
       resolve();
       callback(channelData)
     }
   })
 }
 
-
 const loadDashboard = async (data, callback) => {
   console.log("I'm inside the controller loadDashboard")
-  console.log(data)
   let userId = data
   console.log(userId)
 
-  return new Promise( async (resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     let userData;
-    let channelIds = [];
     let channelData;
-    
+
     try {
-      userData = await db.User.findById(userId).populate("Channel")
-      console.log("userData")
-      console.log(userData)
+      userData = await db.User.findById(userId,
+        "_id username channels show_channels movie_channels inactive_channels messages friends favorite_shows favorite_movies")
+        .populate("Channel")
     } catch (e) {
       console.log("Oooops", e)
     }
 
-    // try {
-    //   if (userData.channels) {
-    //     userData.channels.map(channel => { channelIds.push(channel.id) })
-    //     console.log("channelIds")
-    //     console.log(channelIds)
-    //   }
-    // } catch (e) {
-    //   console.log("Oooops", e)
-    // }
-
     try {
-      channelData = await db.Channel.find({_id: userData.channels}).populate("Message")
-      console.log("channelData")
-      console.log(channelData)
+      channelData = await db.Channel.find({ _id: userData.channels })
+        .populate("messages.sent_messages")
+        .populate("messages.sender")
+        .populate("messages.ref_channel")
     } catch (e) {
       console.log("Oooops", e)
     }
-    
+
     if (userData && channelData) {
-      let dashboardData = {Users: userData, Channels: channelData};
+      let dashboardData = { Users: userData, Channels: channelData };
       console.log("dashboardData")
       console.log(dashboardData)
       resolve();
       callback(dashboardData)
-    }
+    } else { reject() }
   })
 }
 
-
 module.exports = { createChannel, sendMessage, loadDashboard };
+
 
 
 

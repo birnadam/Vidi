@@ -5,7 +5,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import "./style.css";
 
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 import Grid from "../../components/Grid";
 // import Auth from "../../containers/Auth"
 // import MessageText from "../../components/MessageText"
@@ -30,11 +30,33 @@ class HomePg extends Component {
   //   this.props.socket.connect();
   // }
 
+  state = {
+    userCheck: false
+  }
+
+  componentDidMount() {
+    console.log(this.state)
+    let userCheck = this.props.state.auth.authenticated
+    if (userCheck !== "" && userCheck !== null) {
+      this.setState({
+        userCheck: true
+      })
+    } else {
+      this.setState({
+        userCheck: false
+      })
+    }
+  }
+
   render() {
     return (
       <div>
         {/* <Brand title='VIDI'/> */}
-        <Header />
+        {/* <Header /> */}
+        <Grid>
+          {(this.state.userCheck) ? <h4 className="replacement">Learn more about NotYet!</h4> : <Auth socket={this.props.socket} />}
+        </Grid>
+
         <Grid>
           <Auth socket={this.props.socket} />
           {/* <div><MessageText socket={socket}/></div> */}
