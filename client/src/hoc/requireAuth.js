@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import history from "../history"
 
 export default ChildComponent => {
     class ComposedComponent extends Component {
@@ -24,7 +25,7 @@ export default ChildComponent => {
     }
 
     function mapStateToProps({ auth }) {
-        return { auth: auth.authenticated };
+        return { auth: auth.authenticated, history };
     }
 
     return connect(mapStateToProps, null)(ComposedComponent);

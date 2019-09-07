@@ -54,7 +54,7 @@ class HomePg extends Component {
         {/* <Brand title='VIDI'/> */}
         {/* <Header /> */}
         <Grid>
-          {(this.state.userCheck) ? <h4 className="replacement">Learn more about NotYet!</h4> : <Auth socket={this.props.socket} />}
+          {(this.state.userCheck) ? <h4 className="replacement">Learn more about Vidi!</h4> : <Auth socket={this.props.socket} />}
         </Grid>
 
         <Grid>
