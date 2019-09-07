@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import Signin from "./SignIn";
 import Signup from "./SignUp";
+import { compose } from "redux";
+import { connect } from "react-redux";
 
 class Auth extends Component {
 
@@ -26,7 +28,6 @@ class Auth extends Component {
     console.log(this.state)
   }
 
-
   render() {
     return (
       <div className="modal-block">
@@ -41,7 +42,7 @@ class Auth extends Component {
           <br></br>
           <button id="stylingButton" className="btn btn-primary"></button>
           {/* this one is not rly a button ^ it's to fill empty space*/}
-          <button id="loginButtonT" className="btn btn-primary" onClick={this.renderSignin}>LOGIN</button>
+          <button id="loginButton" className="btn btn-primary" onClick={this.renderSignin}>LOGIN</button>
           <button id="signupButton" className="btn btn-primary" onClick={this.renderSignup}>REGISTER</button>
 
           {(this.state.btn) ? <Signin socket={this.props.socket} /> : <Signup socket={this.props.socket} />}
@@ -53,4 +54,10 @@ class Auth extends Component {
 }
 
 
-export default Auth;
+function mapStateToProps(state) {
+  return { state }
+}
+
+export default compose(
+  connect(mapStateToProps, {}),
+)(Auth);

@@ -1,6 +1,6 @@
 footer {
   position: relative;
-  bottom: -280px;
+  bottom: -200px;
   height: 60px;
   text-align: center;
   font-size: 30px;
@@ -10,6 +10,3 @@ footer {
 footer p {
   margin: 20px auto;
 }
-
-  
-  

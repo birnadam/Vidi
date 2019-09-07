@@ -93,6 +93,7 @@ span {
   -ms-flex: 1;
   flex: 1;
 } 
+
 /*=============== END SignIn/SignUp Modals Styles ===============*/
 
 /*=============== START Button Toggles Styles ===============*/
@@ -115,16 +116,6 @@ span {
   right: 0px;
   width: 150px;
 }
-
-
-#signupButtonT {
-  background-color: inherit;
-}
-
-#loginButtonT {
-    background-color: inherit;
-}
-
 
 #signupButton, #signupButtonT, #loginButton, #loginButtonT{
   border: 1px solid #324052;

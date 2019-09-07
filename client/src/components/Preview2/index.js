@@ -13,7 +13,7 @@ const Preview2 = props => (
 
                     <div
                         style={{
-                            backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0) 60%), url("https://i.imgur.com/dbOMsf5.jpg")`
+                            backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0) 60%), url("https://i.imgur.com/jNWbO5u.jpg")`
                         }}
                         className="bgImagePreview"
                     >
