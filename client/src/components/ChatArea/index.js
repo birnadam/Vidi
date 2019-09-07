@@ -10,7 +10,7 @@ class ChatArea extends Component {
     //sample message object
     currentChatId: "",
     currentChannelName: "Stranger Things",
-    messageObj : [
+    messageObj: [
       {
         username: "user1",
         message: " Wow season 3 was amazing ._.",
@@ -46,33 +46,29 @@ class ChatArea extends Component {
   render() {
     return (
       <div id="page">
-        <div id="chat-list">
-          <ul className="chat-list scroll-hijack">
-          </ul>
-        </div>
         {/* CHANNEL NAME GOES INTO THIS SPAN */}
         <div id="chat" className="pageChat">
           <div className="page-header clearfix topicName">
             <span>{this.state.currentChannelName} </span>
           </div>
-        
-        <div className="chat-body scroll-hijack">
-        {/* REPEATING BLOCK ELEMENT */}
-        {this.state.messageObj.map(message => 
-            <div className="chat-message">
-              <div className="avatar"><img src={message.profile} alt="" height="20px" /></div>
-              <div className="chat-message-content">
-                <a href="/" className="chat-message-author">{message.username}</a>
-                <span className="chat-message-date">{message.timestamp}</span>
-                <div className="chat-message-message">
-                  {message.message}
 
+          <div className="chat-body scroll-hijack">
+            {/* REPEATING BLOCK ELEMENT */}
+            {this.state.messageObj.map(message =>
+              <div className="chat-message">
+                <div className="avatar"><img src={message.profile} alt="" height="20px" /></div>
+                <div className="chat-message-content">
+                  <a href="/" className="chat-message-author">{message.username}</a>
+                  <span className="chat-message-date">{message.timestamp}</span>
+                  <div className="chat-message-message">
+                    {message.message}
+
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-  
-            
+            )}
+
+
           </div>
           <div className="chat-footer relative">
             <div id="message-form">
@@ -96,4 +92,3 @@ function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps, {}),
 )(ChatArea);
-

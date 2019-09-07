@@ -9,6 +9,7 @@
   max-width: 100%;
   -ms-overflow-style: none; 
   scrollbar-width: none;  
+  margin: 75px 0 0 20px;
 }
 
 #sidebar::-webkit-scrollbar { 
@@ -94,7 +95,7 @@
   border-radius: 50%;
   position:relative;
 }
-      
+    
 .sidebar-toggle img, .current-server img, .join-server img{
   top:-2px;
 }

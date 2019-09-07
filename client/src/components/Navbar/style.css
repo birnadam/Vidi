@@ -1,87 +1,66 @@
-.navbar li a {
-  text-decoration: none;
-  color: #6caaa2;
-  font-size: 15px;
-}
-
-.navbar a:hover {
-  color: white;
-} 
-
 #navbar {
-  position: fixed;
-  top: 65px;
-  right: 0px;
-  z-index: 2;
-  width: 500px;
-  /* background-color: rgba(14, 31, 56, 0.836);  */
-  border-radius: 20px;
-  text-align: left;
-}
-  
-.navbar-menu {
-  list-style: none;
-  padding: 0;
+  text-align: right;
+  margin-bottom: -30px;
+  margin-right: 183px;
 }
 
-.navbar-menu:first-child {
-  margin-left: 95px;
+#navbar ul {
+  white-space: nowrap;
+  padding-left: 0px;
+  margin-left: 0px;
 }
-      
+
+.navbar-menu a span {
+  color: white;
+}
+
 .navbar-menu li a {
-  color: #6caaa2;
-  background-color: rgba(0, 28, 43, 0.89);
+  color: black;
+  background-color: #1f324c;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  margin: 0 6px 0;
+  margin: 0 1px 0;
   font-weight: 700;
-  font-size: 16px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 9px 12px 2px 0px;
 }
-  
+
 .navbar-menu li a:hover {
-  color: white;
-  /* background: rgba(255, 255, 255, 0.07); */
-  border-radius: 5px; 
+  color: #578b84; 
+  text-decoration: none;
 }
-      
+
 .navbar-menu li a:active {
-  /* background: rgba(255, 255, 255, 0.04); */
-  color: rgba(255, 255, 255, 0.6); 
+  color: #1f324c;
 }
-      
+
 .navbar-menu .iconImage {
-  background-color: #6caaa2;
-  font-size: 24px; 
+  background-color: #1f324c;
+  font-size: 12px; 
+  padding: 9px 12px 2px 0px;
+  color: black;
 }
-  
+
 .navbar-menu .iconImage:hover {
+  text-decoration: none;
   background-color: #578b84; 
-}
-  
-.iconImage img{
-  width: 6%;
-  height: 6%;
-  position:relative;
-}
-        
-.navbar-toggle img, .current-server img{
-  top:-2px;
-}
-  
-.table {
-	display: table;  
-	margin: 0 auto;
+  color: black;
 }
 
-ul#horizontal-list {
-	min-width: 696px;
+.iconImage img {
+  width: 40px;
+  height: 40px;
+}
+
+#horizontal-list {
 	list-style: none;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
-ul#horizontal-list li {
-	display: inline;
+#horizontal-list li {
+  display: inline-block;
 }

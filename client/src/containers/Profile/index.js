@@ -4,10 +4,6 @@ import "./style.css";
 const Profile = props => (
 
     <div id="page">
-        <div id="chat-list">
-            <ul class="chat-list scroll-hijack">
-            </ul>
-        </div>
         <div id="profile" className="pageProfile">
             <div className="page-header clearfix">
                 <span>My Profile</span>

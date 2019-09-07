@@ -61,12 +61,19 @@ const moviesList = {
 
 const Movies = () => {
   return (
-    <div id="page" className="pageMovies positionStyles">
-      {Object.keys(moviesList).map((item, i) => (
-        <div key={i}>
-          <List heading={moviesList[item].header} apiCall={moviesList[item].apiCall} />
+    <div id="page">
+      <div id="movies" className="pageMovies">
+        <div className="page-header clearfix">
+          <span>Movie Explorer</span>
         </div>
-      ))}
+        <div className="movies-body scroll-hijack">
+          {Object.keys(moviesList).map((item, i) => (
+            <div key={i}>
+              <List heading={moviesList[item].header} apiCall={moviesList[item].apiCall} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

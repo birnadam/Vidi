@@ -38,7 +38,7 @@ class Header extends Component {
                                     <div id="headerTitle">
                                         <h2><Link to="/">Vidi</Link></h2>
                                         <span id="headerTag">
-                                            Prevents spoilers until you watch it
+                                            Chat built for Film enthusiasts
                                         </span>
                                     </div>
                                 </Col>

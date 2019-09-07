@@ -1,20 +1,21 @@
 #headerTitle {
   margin-top: 10px;
+  margin-left: 9px;
 }
 
 h2 a {
-  color: aquamarine;
+  color: #62b1a6; 
   font-size: 32px;
   letter-spacing: 5px;
 }
 
 h2 a:hover {
   text-decoration: none;
-  color: rgb(3, 155, 84);
+  color: aquamarine;
 }
 
 #headerTag {
-  color: aquamarine;
+  color: #62b1a6; 
   font-size: 16px;
   letter-spacing: 2px;
 }
