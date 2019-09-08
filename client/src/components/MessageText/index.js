@@ -1,12 +1,7 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
-import { receivedMessage } from "../../actions/dbActions"
-// import { connect as connectSocket } from '../../modules/socket';
-// import "./style.css";
-
-// import { send as sendMessage } from "../../modules/message";
+import { receivedMessage, updateChannels } from "../../actions/dbActions"
 
 export class MessageText extends Component {
   constructor(props) {
@@ -21,18 +16,24 @@ export class MessageText extends Component {
     this.handleSendTextMessage = this.handleSendTextMessage.bind(this);
   }
 
-  sendMessage(content) {
-    console.log(content)
-    this.props.socket.emit("sendMessage", content, function(chatData) {
+  sendMessage(content, chatId, userId, adminId) {
+    let message = { content, chatId, userId, adminId }
+    console.log(message)
+    this.props.socket.emit("sendMessage", message, function (chatData) {
       console.log(chatData)
     })
   }
 
   componentDidMount = () => {
-    this.props.socket.on("messageResponse", (chatData) => {
+    this.props.socket.on("messageResponse", (lastMessage) => {
       console.log("messageResponse frontend hit")
-      console.log(chatData)
-      this.props.receivedMessage(chatData)
+      console.log(lastMessage)
+      this.props.receivedMessage(lastMessage, () => {
+        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+      })
+      this.props.updateChannels(lastMessage, () => {
+        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+      })
     })
   }
 
@@ -51,8 +52,8 @@ export class MessageText extends Component {
   handleSendTextMessage(e) {
     e.preventDefault();
     if (this.state.formContent !== '') {
-      this.sendMessage(this.state.formContent);
-      this.setState({formContent: ''});
+      this.sendMessage(this.state.formContent, this.props.chatId, this.props.userId, this.props.adminId);
+      this.setState({ formContent: '' });
     }
   }
 
@@ -61,50 +62,29 @@ export class MessageText extends Component {
     return (
       <div className="chat-footer">
         <form className="placeholder"
-              onKeyDown={this.handleFormKeyDown}
-              onSubmit={this.handleSendTextMessage}>
+          onKeyDown={this.handleFormKeyDown}
+          onSubmit={this.handleSendTextMessage}>
           <Textarea
             type="text"
-            placeholder="Type your msg here..."
+            placeholder="Type here..."
             required
             value={this.state.formContent}
             onChange={this.handleFormContentChange}
-            name="message" 
-            className="post-input messageArea" 
+            name="message"
+            className="post-input messageArea"
           />
+          <button type="submit" className="btn btn-outline-primary postBtn messageSubmit"><span className="caret-right"></span></button>
         </form>
       </div>
     );
   }
 }
 
-
 const mapStateToProps = function mapStateToProps(state) {
   return {
+    ...state,
     formContent: ""
   }
 };
 
-export default connect(mapStateToProps, { receivedMessage })(MessageText);
-
-
-
-
-
-// import React from "react";
-// import "./style.css";
-
-// const MessageText = props => (
-//     <div id="page">
-//         <div id="chat" className="page">
-//         <div className="chat-footer relative">
-//                 <form id="message-form" action="">
-//                     <input name="message" type="text" className="post-input messageArea" placeholder="Type your msg here..." />
-//                     <button type="submit" className="post-button messageSubmit"><span className="caret-right"></span></button>
-//                 </form>
-//             </div>
-//         </div>
-//     </div>
-// );
-
-// export default MessageText; 
+export default connect(mapStateToProps, { receivedMessage, updateChannels })(MessageText);

@@ -3,7 +3,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import "./style.css";
 import Channel from "../../components/Channel"
-import { ProfileButton, AddButton } from "../../components/Buttons"
+import { ProfileButton, AddButton, } from "../../components/Buttons"
 import CreateChat from "../../containers/CreateChat";
 
 const images = [

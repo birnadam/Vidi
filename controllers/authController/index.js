@@ -1,6 +1,6 @@
 
-const db = require("../../models");
-const jwt = require("jwt-simple");
+const db     = require("../../models");
+const jwt    = require("jwt-simple");
 const config = require("../../config");
 
 const tokenForUser = user => {
@@ -8,22 +8,22 @@ const tokenForUser = user => {
     // Sub === subject
     // Iat === issues at time
     // It's going to encode the whole 1st object and then add our secret to it
-    return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+    return jwt.encode({sub: user.id, iat: timestamp}, config.secret);
 }
 
 module.exports = {
     signUp: async (req, res) => {
         console.log("inside signup authcontroller")
         const { email, password } = req.body;
-        if (!email || !password) return res.status(422).json({ error: "You must provide an email and password" });
-
+        if (!email || !password) return res.status(422).json({error: "You must provide an email and password"});
+        
         try {
-            const existingUser = await db.User.findOne({ email });
-            if (existingUser) return res.status(422).json({ error: "Email is in use" });
+            const existingUser = await db.User.findOne({email});
+            if (existingUser) return res.status(422).json({error: "Email is in use"});
             let newUserInfo = req.body.username ? { email, password, username: req.body.username } : { email, password }
             let user = await new db.User(newUserInfo);
             user.save();
-
+            
             console.log(user)
             let userData = {};
             userData.id = user._id;
@@ -36,12 +36,12 @@ module.exports = {
             userData.favorite_shows = user.favorite_shows;
             userData.favorite_movies = user.favorite_movies;
             console.log(userData)
-
+            
             // res.json({token: tokenForUser(user)});
-            res.json({ userData: userData, token: tokenForUser(user) });
+            res.json({userData: userData, token: tokenForUser(user)});
 
-        } catch (e) {
-            res.status(404).json({ e });
+        } catch(e) {
+            res.status(404).json({e});
         }
     },
     signIn: (req, res) => {
@@ -59,9 +59,8 @@ module.exports = {
         userData.favorite_movies = req.user.favorite_movies;
 
         // res.json({token: tokenForUser(req.user)});
-        res.json({ userData: userData, token: tokenForUser(req.user) });
+        res.json({userData: userData, token: tokenForUser(req.user)});
     }
 }
-
 
 

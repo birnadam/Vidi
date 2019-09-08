@@ -24,6 +24,12 @@ class CreateChat extends Component {
     this.setState({ modal: false })
   }
 
+  // toggle() {
+  //   this.setState({
+  //     modal: !this.state.modal
+  //   });
+  // }
+
   componentDidMount = () => {
     this.props.socket.on("channelResponse", (data) => {
       console.log("channelresponse frontend hit")
@@ -44,10 +50,10 @@ class CreateChat extends Component {
     const { handleSubmit } = this.props
     return (
       <div>
-        <Modal isOpen={this.props.modal} onClick={this.toggle} className="modal-block2">
+        <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-block2" unmountOnClose={true}>
           <ModalHeader>Create New Channel</ModalHeader>
           <ModalBody>
-            <form onSubmit={handleSubmit(this.onSubmit)} className="form-horizontal">
+            <form onSubmit={handleSubmit(this.onSubmit)} className="form-horizontal" ref="formModal">
               <div>
                 <fieldset>
                   <label>Topic</label>
@@ -68,6 +74,26 @@ class CreateChat extends Component {
                   />
                 </fieldset>
               </div>
+              {/* <div>
+                <fieldset>
+                  <label>Add Friends</label>
+                  <Field
+                    name="friends"
+                    component={InputField}
+                    className="form-control"
+                  />
+                </fieldset>
+              </div>
+              <div>
+                <fieldset>
+                  <label>Media</label>
+                  <Field
+                    name="media"
+                    component={InputField}
+                    className="form-control"
+                  />
+                </fieldset>
+              </div> */}
               <div>
                 <fieldset>
                   <label>Add Friends</label>
@@ -78,31 +104,9 @@ class CreateChat extends Component {
                   />
                 </fieldset>
               </div>
-              {/* <div>
-                <fieldset>
-                  <label>Media</label>
-                  <Field
-                    name="media"
-                    label="media"
-                    component={InputField}
-                    className="form-control"
-                  />
-                </fieldset>
-              </div>
-              <div>
-                <fieldset>
-                  <label>Public</label>
-                  <Field
-                    name="public"
-                    label="public"
-                    component={InputField}
-                    className="form-control"
-                  />
-                </fieldset>
-              </div> */}
               <div>
                 <br></br>
-                <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.toggle}>Create</Button>
+                <Button color="primary" type="submit" className="btn btn-block btn-radius btn-primary" onClick={this.props.toggle}>Create</Button>
               </div>
             </form>
           </ModalBody>
@@ -125,5 +129,3 @@ export default compose(
     form: "newChannel"
   })
 )(CreateChat);
-
-// export default CreateChat;

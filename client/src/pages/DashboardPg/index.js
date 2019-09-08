@@ -1,17 +1,15 @@
-
 import React, { Component } from 'react'
 import "./style.css";
 import { Row, Col } from "reactstrap"
 import Grid from "../../components/Grid";
-// import Header2 from "../../components/Header2";
 // import MediaSearch from "../../components/MediaSearch";
 import Channels from "../../containers/Channels";
-// import Navbar from "../../components/Navbar";
 import ChatArea from "../../components/ChatArea";
 import Footer from "../../components/Footer";
 import requireAuth from "../../hoc/requireAuth"
 import { connect } from 'react-redux';
 import { loadDashboard, activateChannel, updateCurrentPage } from "../../actions/dbActions"
+// import history from '../../history';
 
 
 class DashboardPg extends Component {
@@ -19,6 +17,7 @@ class DashboardPg extends Component {
     componentDidMount() {
         this.props.updateCurrentPage(window.location.pathname)
     }
+
 
     componentWillMount() {
         // console.log(this.props.store)
@@ -67,6 +66,7 @@ class DashboardPg extends Component {
     }
 
 }
+
 
 function mapStateToProps(state) {
     return { state }

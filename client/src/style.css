@@ -32,7 +32,7 @@ span {
   border-radius: 20px;
   /* -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
   transform: translateX(-50%) translateY(-50%) scale(0.7); */
-  margin-top: 100px;
+  margin-top: 20px;
   /* margin-left: 220px; */
   width: 100%;
   max-width: 680px;
@@ -129,7 +129,7 @@ span {
 
 /*=============== START Form Styles ===============*/
 .form-horizontal{ 
-  margin-top: 30px;
+  margin-top: 0px;
 }
   
 .form-horizontal > .form-group { 
@@ -152,19 +152,22 @@ p {
   color: #687A92;
 }
 
+#labelColor {
+  color: white;
+}
+
 .form-control {
   border: 0;
   background: transparent;
   border-radius: 15px;
   border: 2px solid #324052;
   font-size: 1.2em;
-  color: #fff;
   height: 46px;
   padding: 10px 0;
   text-align: center;
   -webkit-transition: background-color .3s ease, color .3s ease;
   transition: background-color .3s ease, color .3s ease;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
   
 .form-control {
@@ -173,7 +176,7 @@ p {
 }
   
 .form-control:hover {
-  border-radius: 60px; 
+  border-radius: 5px; 
 }
   
 .form-control:focus {
@@ -220,8 +223,10 @@ p {
 }
   
 .btn-radius:hover {
-  border-radius: 60px; 
-}
+    border-radius: 5px;
+    border-color: aquamarine;
+    box-shadow: 0 0 .3rem aquamarine;
+  }
   
 .btn-primary, .btn-primary:focus, .btn-primary:hover, .btn-primary:active:focus {
   background-color: #578b84; 
@@ -362,15 +367,15 @@ a:hover {
 .groups-list > .list > li > a:hover {
   background-color: rgba(255, 255, 255, 0.05); 
 }
-                    
+
 .groups-list > .list > li > a:active {
   background-color: rgba(255, 255, 255, 0.025);
 }
-                
+
 .groups-list > .list > li + li { 
   margin-top: 4px;                    
 }                       
-                          
+
 .avatar .little_avatar {                      
   height: 20px;                         
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { compose } from "redux";
 import { connect } from "react-redux";
 import "./style.css";
+// import { Tooltip } from 'reactstrap';
 
 class Channel extends Component {
 
