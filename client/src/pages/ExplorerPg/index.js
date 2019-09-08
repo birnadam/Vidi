@@ -33,6 +33,7 @@ class ExplorerPg extends Component {
                         </Col>
                         <Col md="10" sm="11" xs="9">
                             <Movies />
+                            {/* <Movies socket={this.props.socket} /> */}
                         </Col>
                     </Row>
                     <Footer />

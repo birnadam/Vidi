@@ -106,3 +106,99 @@ body, html {
   color: #43b8a8;
   font-size: 45px;
 }
+
+/* Movie Info */
+.content {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 410px;
+  font-size: 18px;
+  color: #e6e6e6;
+  font-weight: 500;
+}
+
+.content h1 {
+  text-align: center;
+  margin: 30px;
+  margin-top: 10px;
+}
+
+.content p {
+  line-height: 19px;
+}
+
+.video {
+  padding-top: 56.25%;
+  position: relative;
+  -webkit-box-shadow: 0 0 30px grey;
+  box-shadow: 0 0 30px grey;
+}
+
+iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.overview-container {
+  margin-top: 10px;
+}
+
+.year-run-vote span {
+  font-size: 14px;
+  padding-right: 6px;
+}
+
+.run,
+.vote {
+  border-left: 1px solid white;
+  padding-left: 6px;
+}
+
+.greyed {
+  color: #9c9c9c;
+}
+
+i {
+  color: gold;
+}
+
+.back-height {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#movieInfoContainer {
+  margin-top: 20px;
+}
+
+@media (min-width:600px){
+  #movieInfoContainer {
+    margin: auto;
+    width: 80%;
+  }
+}
+
+@media (max-width:600px){
+  #movieInfoContainer {
+    /* margin-left: 40px; */
+    width: 85%;
+  }
+
+  .content {
+    width: 90%;
+    font-size: 93%;
+  }
+
+  .content h1 {
+    margin: 30px 0;
+  }
+}

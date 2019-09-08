@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
@@ -16,6 +16,7 @@ import DashboardPg from "./pages/DashboardPg";
 import ProfilePg from "./pages/ProfilePg";
 import Wrapper from './components/Wrapper';
 import Explorer from './pages/ExplorerPg';
+import MovieInfo from './containers/Movies/MovieInfo.js';
 import './style.css';
 import SignOut from './containers/SignOut';
 
@@ -48,11 +49,14 @@ ReactDOM.render(
         <Router history={history}>
             <Wrapper>
                 <App>
-                    <Route exact path="/" render={() => <HomePg socket={socket} />} />
-                    <Route exact path="/dashboard" render={() => <DashboardPg socket={socket} />} />
-                    <Route exact path="/profile" render={() => <ProfilePg socket={socket} />} />
-                    <Route exact path="/explorer" render={() => <Explorer socket={socket} />} />
-                    <Route exact path="/logout" render={() => <SignOut />} />
+                    <Switch>
+                        <Route exact path="/" render={() => <HomePg socket={socket} />} />
+                        <Route exact path="/dashboard" render={() => <DashboardPg socket={socket} />} />
+                        <Route exact path="/profile" render={() => <ProfilePg socket={socket} />} />
+                        <Route exact path="/explorer" render={() => <Explorer socket={socket} />} />
+                        <Route path="/:movie_id" component={MovieInfo} />
+                        <Route exact path="/logout" render={() => <SignOut />} />
+                    </Switch>
                 </App>
             </Wrapper>
         </Router>

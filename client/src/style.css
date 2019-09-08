@@ -301,6 +301,12 @@ a:hover {
   box-shadow: 8px 8px 20px #999;
 }
 
+.footerAlign {
+  position: relative;
+  left: 52px;
+  width: 100%;
+}
+
 .movies-body {
   position: relative;
   top: -50px;
