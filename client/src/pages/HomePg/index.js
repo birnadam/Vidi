@@ -46,7 +46,7 @@ class HomePg extends Component {
           <Preview2 />
           <h4 className="doMsg">Above is a sneakpeek of what this app has to offer.
           A sleek messenger that's got a multitude of ways to keep you entertained.
-              Click <Link to="/">here</Link> to sign up today.
+          Come join our community!
               </h4>
           <Footer />
         </Grid>

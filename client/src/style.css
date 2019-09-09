@@ -271,9 +271,8 @@ a:hover {
   /* padding-left: 55px;  */
 }
 
-.pageMovies, .pageProfile, .pageChat {
+.pageMovies, .pageProfile, .pageChat, .pageMovie {
   position: relative;
-  width: 114%;
   height: calc(100% - 60px);
   -webkit-transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
   transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
@@ -287,6 +286,15 @@ a:hover {
   box-shadow: 8px 8px 20px #999;
 }
 
+.pageMovie {
+  margin-top: 40px;
+  width: 95%
+}
+ 
+.pageMovies, .pageProfile, .pageChat{
+  width: 114%;
+}
+
 @media (min-width:600px){
   #page {
     margin-left: 0px;
@@ -296,7 +304,7 @@ a:hover {
     margin-right: 183px;
   }
 
-  .pageMovies, .pageProfile, .pageChat {
+  .pageMovies, .pageProfile, .pageChat, .pageMovie {
     left: 40px;
   }
 }
@@ -313,6 +321,11 @@ a:hover {
   .pageMovies, .pageProfile {
     left: -10px;
     width: 145%;
+  }
+
+  .pageMovie {
+    left: 25px;
+    width: 105%
   }
 
   .pageChat{

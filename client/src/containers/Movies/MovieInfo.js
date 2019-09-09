@@ -151,7 +151,7 @@ class MovieInfo extends Component {
 
     return (
       <div id="movieInfoContainer">
-        <div id="movies" className="pageMovies">
+        <div id="movies" className="pageMovie">
           <div className="page-header clearfix">
             <span><Link to="/Explorer">Movie Explorer</Link></span>
           </div>
