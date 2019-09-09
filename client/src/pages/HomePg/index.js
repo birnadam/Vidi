@@ -7,6 +7,7 @@ import Preview from "../../components/Preview";
 import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
 import Auth from "../../containers/Auth"
+import { Link } from 'react-router-dom';
 
 class HomePg extends Component {
 
@@ -45,7 +46,7 @@ class HomePg extends Component {
           <Preview2 />
           <h4 className="doMsg">Above is a sneakpeek of what this app has to offer.
           A sleek messenger that's got a multitude of ways to keep you entertained.
-              Click <a href="http://localhost:3000">here</a> to sign up today.
+              Click <Link to="/">here</Link> to sign up today.
               </h4>
           <Footer />
         </Grid>

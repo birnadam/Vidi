@@ -311,13 +311,13 @@ a:hover {
   }
 
   .pageMovies, .pageProfile {
-    left: 32px;
-    width: 120%;
+    left: -10px;
+    width: 140%;
   }
 
   .pageChat{
-    left: 42px;
-    width: 110%;
+    left: 12px;
+    width: 130%;
   }
 }
 
@@ -427,5 +427,22 @@ h6 {
 
 #header-container {
   margin: -20px 0px 20px 70px;
+}
+
+@media (max-width:600px){
+  #logo-image img {
+    width: 65px;
+    color-adjust: #62b1a6; 
+  }
+  
+  #logo-image {
+    z-index: 2;
+    position: fixed;
+    margin: 8px 100px 20px -40px;
+  }
+  
+  #header-container {
+    margin: -20px 0px 20px 40px;
+  }
 }
 /*=============== END Logo Styles ===============*/    
