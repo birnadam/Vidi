@@ -7,6 +7,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const routes = require("./routes");
 const dbController = require("./controllers/dbController")
+const path = require('path');
 
 // Database setup
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chatdb", {useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false}, (err, db) => {

@@ -15,18 +15,7 @@
   align-content: flex-start;
   overflow: auto;
   padding-bottom: 50px;
-}
-
-@media (min-width:600px){
-  .wrapper {
-    animation: animatedBackground 60s linear infinite alternate;
-  }
-}
-
-@media (max-width:600px){
-  .wrapper {
-    animation: animatedBackground 120s linear infinite alternate;
-  }
+  animation: animatedBackground 60s linear infinite alternate;
 }
 
 /* .wrapper:visited {
