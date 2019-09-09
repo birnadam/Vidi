@@ -8,7 +8,7 @@ import "./style.css";
 import requireAuth from "../../hoc/requireAuth"
 
 import Grid from "../../components/Grid";
-import Channels from "../../containers/Channels";
+// import Channels from "../../containers/Channels";
 import Movies from "../../containers/Movies";
 // import Navbar from "../../components/Navbar";
 // import Header2 from "../../components/Header2";
@@ -29,7 +29,7 @@ class ExplorerPg extends Component {
                 <Grid>
                     <Row>
                         <Col md="0" sm="0" xs="0">
-                            <Channels socket={this.props.socket} />
+                            {/* <Channels socket={this.props.socket} /> */}
                         </Col>
                         <Col md="10" sm="11" xs="9">
                             <Movies />

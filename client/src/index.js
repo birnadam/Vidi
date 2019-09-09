@@ -55,8 +55,8 @@ ReactDOM.render(
                         <Route exact path="/profile" render={() => <ProfilePg socket={socket} />} />
                         <Route exact path="/explorer" render={() => <Explorer socket={socket} />} />
                         <Route path="/:movie_id" component={MovieInfo} />
-                        <Route exact path="/logout" render={() => <SignOut />} />
                     </Switch>
+                    <Route exact path="/logout" render={() => <SignOut />} />
                 </App>
             </Wrapper>
         </Router>

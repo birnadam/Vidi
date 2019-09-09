@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./style.css";
 
 const Profile = props => (
@@ -18,35 +19,35 @@ const Profile = props => (
                                 <h6 className="text-bold mb-25">Friends List</h6>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Binyan</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Coral</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Musa</a></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Binyan</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Coral</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Musa</Link></li>
                                     </ul>
                                 </div>
                                 <h6 className="text-bold mt-25">Public Channels</h6>
                                 <p className="mb-25 clr-fade text-small">Click a group to copy the invite link to clipboard</p>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Spiderman</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Parks and Rec</a></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Spiderman</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Parks and Rec</Link></li>
                                     </ul>
                                 </div>
                                 <h6 className="text-bold mt-25">Private Channels</h6>
                                 <p className="mb-25 clr-fade text-small">Click a group to copy the invite link to clipboard</p>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things W/ Spoils</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>My Hero Academia W/ Spoils</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer W/ Spoils</a></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things W/ Spoils</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>My Hero Academia W/ Spoils</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer W/ Spoils</Link></li>
                                     </ul>
                                 </div>
                                 <h6 className="text-bold mt-25">Recent Ratings</h6>
                                 <div className="groups-list scroll-hijack">
                                     <ul className="list">
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer&nbsp;S.1 E.3&nbsp;Rating: 5</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things&nbsp;S.1E.8 &nbsp;Rating: 5</a></li>
-                                        <li><a href="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Game of Thrones&nbsp;Rating: 1</a></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Demon Slayer&nbsp;S.1 E.3&nbsp;Rating: 5</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Stranger Things&nbsp;S.1E.8 &nbsp;Rating: 5</Link></li>
+                                        <li><Link to="/profile"><div className="avatar"><img className="little_avatar" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="" /></div>Game of Thrones&nbsp;Rating: 1</Link></li>
                                     </ul>
                                 </div>
                             </div>
