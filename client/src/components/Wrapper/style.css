@@ -5,15 +5,16 @@
 
 .wrapper {
   background: whitesmoke (175, 175, 175);
-  background-image: url('https://mocah.org/uploads/webp/5389496-northern-light-sky-night-aurora-boreali-night-sky-space-green-blue-star-background-dark-wallpaper-cloud-abstract-purple-green-light-aurora-beautiful-summer-texture-free-images.jpg.webp');    
+  background-image: url('https://i.imgur.com/gEz7c9O.jpg');    
   background-position: 0px 0px;
-  background-repeat: repeat-x;
+  background-repeat: no-repeat;
   height: 100%; 
   display: relative;
   flex-flow: row wrap;
   justify-content: space-around;
   align-content: flex-start;
   overflow: auto;
+  overflow-x: hidden;
   padding-bottom: 50px;
   animation: animatedBackground 60s linear infinite alternate;
 }
