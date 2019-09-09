@@ -330,7 +330,8 @@ a:hover {
   -webkit-box-align: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-left: 5%;
+  width: 95%;
+  margin: auto;
 }
 
 .groups-list {
@@ -341,7 +342,6 @@ a:hover {
   max-height: calc(50vh - 240px);
   overflow: hidden; 
   margin-bottom: 35px;
-  min-width: 250px;
   margin-right: 5px;
 }
 
@@ -357,7 +357,7 @@ a:hover {
   padding: 8px 15px;
   border-radius: 6px;
   color: rgba(255, 255, 255, 0.4);
-  font-size: 0.875em;
+  font-size: 0.775em;
 }
 
 .groups-list > .list > li > a > .avatar {
