@@ -312,12 +312,12 @@ a:hover {
 
   .pageMovies, .pageProfile {
     left: -10px;
-    width: 140%;
+    width: 145%;
   }
 
   .pageChat{
     left: 12px;
-    width: 130%;
+    width: 135%;
   }
 }
 
@@ -438,11 +438,11 @@ h6 {
   #logo-image {
     z-index: 2;
     position: fixed;
-    margin: 8px 100px 20px -40px;
+    margin: 8px -40px 20px 375px;
   }
   
   #header-container {
-    margin: -20px 0px 20px 40px;
+    margin: -20px 40px 20px 10px;
   }
 }
 /*=============== END Logo Styles ===============*/    
