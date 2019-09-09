@@ -271,23 +271,9 @@ a:hover {
   /* padding-left: 55px;  */
 }
 
-@media (min-width:600px){
-  #page {
-    margin-left: 0px;
-  }
-}
-
-@media (max-width:600px){
-  #page {
-    margin-left: 40px;
-    width: 100%;
-  }
-}
-
 .pageMovies, .pageProfile, .pageChat {
   position: relative;
-  left: 52px;
-  width: 100%;
+  width: 114%;
   height: calc(100% - 60px);
   -webkit-transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
   transition: left 0.7s cubic-bezier(0.86, 0, 0.07, 1), -webkit-filter 0.3s ease;
@@ -299,6 +285,40 @@ a:hover {
   border-top-right-radius: 20px;
   border: 0;
   box-shadow: 8px 8px 20px #999;
+}
+
+@media (min-width:600px){
+  #page {
+    margin-left: 0px;
+  }
+
+  #navbar {
+    margin-right: 183px;
+  }
+
+  .pageMovies, .pageProfile, .pageChat {
+    left: 40px;
+  }
+}
+
+@media (max-width:600px){
+  #page {
+    margin-left: 22px;
+  }
+
+  .pageChat{
+    left: 42px;
+  }
+
+  .pageMovies, .pageProfile {
+    left: 32px;
+    width: 120%;
+  }
+
+  .pageChat{
+    left: 42px;
+    width: 110%;
+  }
 }
 
 .footerAlign {
@@ -402,10 +422,10 @@ h6 {
 #logo-image {
   z-index: 2;
   position: fixed;
-  margin: 8px 100px 20px -80px;
+  margin: 8px 100px 20px -60px;
 }
 
 #header-container {
-  margin: -20px 0px 20px 90px;
+  margin: -20px 0px 20px 70px;
 }
 /*=============== END Logo Styles ===============*/    

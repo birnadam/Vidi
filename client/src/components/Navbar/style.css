@@ -1,7 +1,19 @@
 #navbar {
-  text-align: right;
   margin-bottom: -30px;
-  margin-right: 183px;
+}
+
+@media (min-width:600px){
+  #navbar {
+    text-align: right;
+    margin-right: 55px;
+  }
+}
+
+@media (max-width:600px){
+  #navbar {
+    text-align: left;
+    margin-left: 0px;
+  }
 }
 
 #navbar ul {
