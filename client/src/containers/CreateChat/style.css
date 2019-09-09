@@ -9,11 +9,11 @@
     max-width: 400px;
     font-family: sans-serif;
     box-shadow: 8px 8px 20px #999;
-    height: 500px;
+    height: 420px;
     position: relative;
     opacity: 1;
 }  
-  
+
 .modal-block2:hover {
     opacity: 0.9;
 }

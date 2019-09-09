@@ -7,7 +7,6 @@ import Preview from "../../components/Preview";
 import Preview2 from "../../components/Preview2";
 import Footer from "../../components/Footer";
 import Auth from "../../containers/Auth"
-import { Link } from 'react-router-dom';
 
 class HomePg extends Component {
 
