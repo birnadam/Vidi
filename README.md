@@ -1,7 +1,5 @@
 # Vidi
 
-*Currently being worked on, ReadMe will be updated by 9/13/19*
-
 **MVP Beta version includes:**
 Auth functions: Signing up, signing in, and signing out<br>
 Chat functions: Able to create chat channel, and chat<br>
